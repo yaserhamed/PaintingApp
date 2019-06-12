@@ -88,7 +88,14 @@ public class DrawGraphicsCommand {
                 yArr[i] = (int) objy[i];
             }
             graphics2D.drawPolygon(xArr, yArr, xArr.length);
-            panel.repaint();
+            panel.repaint();                                    
+            return;
+        }
+        
+        if (instrument.type == ROUND_RECTANGLE) {
+	        graphics2D.setStroke(new BasicStroke(instrumentDecorator.fontWidth, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND));
+	        graphics2D.drawRoundRect(positionX, positionY, weight, height, 20, 20);    
+	        panel.repaint();   
             return;
         }
 
